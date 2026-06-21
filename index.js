@@ -49,8 +49,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server ready on http://localhost:${PORT}`));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server ready on port ${PORT}`));
 
 app.post('/api/chat', async (req, res) => {
   const { conversation } = req.body;
